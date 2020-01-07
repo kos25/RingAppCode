@@ -1,0 +1,122 @@
+<apex:page id="RingsLogin" docType="html" sidebar="false" showHeader="false" controller="SignupAndLoginController" >
+    <head>
+        <title>RingLogIn</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />	
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css" />	
+        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <apex:stylesheet value="{!URLFOR($Resource.RingCSS)}"/>
+        <style>
+            .sighnupbtn{
+            background: none;
+            height: 43px;
+            width: 58px;
+            border: none;
+            color: white;
+            font-size: 17px;
+            }
+            
+            .wrap-input100 {
+            margin-bottom: 13px !important;
+            }   
+            .errmsg{
+            color : red ; 
+            }
+            
+        </style>
+        <script>
+
+            function  validateInput(){
+            var validationPass = true ; 
+            var email = document.getElementById("RingsLogin:RingLoginfrom:email").value ;
+            var Password = document.getElementById("RingsLogin:RingLoginfrom:password").value ; 
+
+            if(email == "" || email == null || email == "undefine" ){
+                validationPass = false ; 
+                document.getElementById('emailErrmsg').innerHTML =  "Please Enter Email.";
+            }else if(validate(email) ==  false ){
+                validationPass = false ; 
+                document.getElementById('emailErrmsg').innerHTML =  "Invalid Email Address";
+            }else{
+                document.getElementById('emailErrmsg').innerHTML =  "";
+            }
+
+            if(Password == "" || Password == null || Password == "undefine" ){
+                validationPass = false ; 
+                document.getElementById('passwordErrmsg').innerHTML =  "Please Enter Password ";
+            }else{
+                document.getElementById('passwordErrmsg').innerHTML =  "";
+            }
+
+            if(validationPass){
+                RingLogIn();
+            }
+
+            }
+
+        function validate(email) {
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (reg.test(email) == false) 
+            return false;
+        else
+            return true;
+    }
+
+        </script>
+        </head>
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <apex:form id="RingLoginfrom" styleClass="login100-form validate-form" >
+
+                    <apex:actionFunction name="redirectToSignupPage" action="{!redirectToSignupPage}" />
+                    <apex:actionFunction name="RingLogIn" action="{!RingLogInFunc}" />
+
+                        <span class="login100-form-title p-b-26">
+                           WelCome
+                        </span>
+                        <span class="login100-form-title p-b-48">
+                            <i class="zmdi zmdi-font"></i>
+                        </span>
+                        
+                        <div class="wrap-input100 validate-input">
+                            <apex:inputText id="email" value="{!emailToLogin}"  styleClass="input100"  html-placeholder="Please Enter Email  " />
+                        </div>
+                        <span id ="emailErrmsg" class = "errmsg"></span>
+                        <div class="wrap-input100 validate-input">
+                            <apex:inputSecret id="password" value="{!PasswordTologin}" styleClass="input100"   html-placeholder=" Please Enter Password"  />
+                        </div>
+                        <span id ="passwordErrmsg" class = "errmsg"></span>
+                        <apex:outputText styleClass="errmsg" value="{!errorMessage}" rendered="{!PasswordNotMatched || UserNotFound}" />
+
+
+                    </apex:form>
+                    
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <center> <button class="sighnupbtn" onclick="validateInput()">
+                               Log in 
+                                </button></center>                   
+                        </div>
+                    </div>
+                    <div class="text-center p-t-115" style="margin: 15px;" >
+                        <span class="txt1">
+                           Not  a member ? 
+                        </span>                    
+                        <a class="txt2" href="#"  onclick="redirectToSignupPage()">
+                            Signup here. 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </apex:page>

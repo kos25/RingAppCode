@@ -1,0 +1,231 @@
+{
+  "fileFormat" : {
+    "charsetName" : "UTF-8",
+    "fieldsEnclosedBy" : "\"",
+    "fieldsDelimitedBy" : ",",
+    "linesTerminatedBy" : "\n",
+    "numberOfLinesToIgnore" : 1
+  },
+  "objects" : [ {
+    "connector" : "API",
+    "description" : "URI",
+    "fullyQualifiedName" : "URI",
+    "label" : "URI",
+    "name" : "URI",
+    "fields" : [ {
+      "type" : "Text",
+      "name" : "EVENT_TYPE",
+      "description" : "EVENT_TYPE",
+      "fullyQualifiedName" : "EVENT_TYPE",
+      "label" : "EVENT_TYPE",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "TIMESTAMP",
+      "description" : "TIMESTAMP",
+      "fullyQualifiedName" : "TIMESTAMP",
+      "label" : "TIMESTAMP",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "REQUEST_ID",
+      "description" : "REQUEST_ID",
+      "fullyQualifiedName" : "REQUEST_ID",
+      "label" : "REQUEST_ID",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "ORGANIZATION_ID",
+      "description" : "ORGANIZATION_ID",
+      "fullyQualifiedName" : "ORGANIZATION_ID",
+      "label" : "ORGANIZATION_ID",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "USER_ID",
+      "description" : "USER_ID",
+      "fullyQualifiedName" : "USER_ID",
+      "label" : "USER_ID",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Numeric",
+      "name" : "RUN_TIME",
+      "description" : "RUN_TIME",
+      "fullyQualifiedName" : "RUN_TIME",
+      "label" : "RUN_TIME",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "scale" : 0,
+      "precision" : 18,
+      "defaultValue" : "0",
+      "isMultiValue" : false
+    }, {
+      "type" : "Numeric",
+      "name" : "CPU_TIME",
+      "description" : "CPU_TIME",
+      "fullyQualifiedName" : "CPU_TIME",
+      "label" : "CPU_TIME",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "scale" : 0,
+      "precision" : 18,
+      "defaultValue" : "0",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "URI",
+      "description" : "URI",
+      "fullyQualifiedName" : "URI",
+      "label" : "URI",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "SESSION_KEY",
+      "description" : "SESSION_KEY",
+      "fullyQualifiedName" : "SESSION_KEY",
+      "label" : "SESSION_KEY",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "LOGIN_KEY",
+      "description" : "LOGIN_KEY",
+      "fullyQualifiedName" : "LOGIN_KEY",
+      "label" : "LOGIN_KEY",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "REQUEST_STATUS",
+      "description" : "REQUEST_STATUS",
+      "fullyQualifiedName" : "REQUEST_STATUS",
+      "label" : "REQUEST_STATUS",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Numeric",
+      "name" : "DB_TOTAL_TIME",
+      "description" : "DB_TOTAL_TIME",
+      "fullyQualifiedName" : "DB_TOTAL_TIME",
+      "label" : "DB_TOTAL_TIME",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "scale" : 0,
+      "precision" : 18,
+      "defaultValue" : "0",
+      "isMultiValue" : false
+    }, {
+      "type" : "Numeric",
+      "name" : "DB_BLOCKS",
+      "description" : "DB_BLOCKS",
+      "fullyQualifiedName" : "DB_BLOCKS",
+      "label" : "DB_BLOCKS",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "scale" : 0,
+      "precision" : 18,
+      "defaultValue" : "0",
+      "isMultiValue" : false
+    }, {
+      "type" : "Numeric",
+      "name" : "DB_CPU_TIME",
+      "description" : "DB_CPU_TIME",
+      "fullyQualifiedName" : "DB_CPU_TIME",
+      "label" : "DB_CPU_TIME",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "scale" : 0,
+      "precision" : 18,
+      "defaultValue" : "0",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "REFERRER_URI",
+      "description" : "REFERRER_URI",
+      "fullyQualifiedName" : "REFERRER_URI",
+      "label" : "REFERRER_URI",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Date",
+      "name" : "TIMESTAMP_DERIVED",
+      "description" : "TIMESTAMP_DERIVED",
+      "fullyQualifiedName" : "TIMESTAMP_DERIVED",
+      "label" : "TIMESTAMP_DERIVED",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "defaultValue" : "",
+      "isMultiValue" : false,
+      "format" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    }, {
+      "type" : "Text",
+      "name" : "USER_ID_DERIVED",
+      "description" : "USER_ID_DERIVED",
+      "fullyQualifiedName" : "USER_ID_DERIVED",
+      "label" : "USER_ID_DERIVED",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "CLIENT_IP",
+      "description" : "CLIENT_IP",
+      "fullyQualifiedName" : "CLIENT_IP",
+      "label" : "CLIENT_IP",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    }, {
+      "type" : "Text",
+      "name" : "URI_ID_DERIVED",
+      "description" : "URI_ID_DERIVED",
+      "fullyQualifiedName" : "URI_ID_DERIVED",
+      "label" : "URI_ID_DERIVED",
+      "isSystemField" : false,
+      "isUniqueId" : false,
+      "precision" : 255,
+      "defaultValue" : "",
+      "isMultiValue" : false
+    } ]
+  } ]
+}

@@ -1,0 +1,159 @@
+<apex:page id="Ringsingup" docType="html" sidebar="false" showHeader="false" controller="SignupAndLoginController" >
+    <head>
+        <title>RingSighnup</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />	
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css" />	
+        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <apex:stylesheet value="{!URLFOR($Resource.RingCSS)}"/>
+        <style>
+            .sighnupbtn{
+            background: none;
+            height: 43px;
+            width: 58px;
+            border: none;
+            color: white;
+            font-size: 17px;
+            }
+            
+            .wrap-input100 {
+            margin-bottom: 13px !important;
+            }   
+            .errmsg{
+            color : red ; 
+            }
+            
+        </style>
+        
+        <script>
+        function  validateInput(){
+            var validationPass = true ; 
+            var firstname = document.getElementById("Ringsingup:Ringsingupfrom:firstName").value ;
+            var email = document.getElementById("Ringsingup:Ringsingupfrom:email").value ;
+            var phoneNumber = document.getElementById("Ringsingup:Ringsingupfrom:PhoneNumber").value ; 
+            var Password = document.getElementById("Ringsingup:Ringsingupfrom:password").value ; 
+            var passworAgain = document.getElementById("Ringsingup:Ringsingupfrom:passwordAgain").value ;
+            if(firstname == "" || firstname == null || firstname == "undefine" ){
+                validationPass = false ; 
+                document.getElementById('firstNameErrmsg').innerHTML =  "Please Enter First Name.";
+            }else{
+                document.getElementById('firstNameErrmsg').innerHTML =  "";
+            }
+            if(email == "" || email == null || email == "undefine" ){
+                validationPass = false ; 
+                document.getElementById('emailErrmsg').innerHTML =  "Please Enter Email.";
+            }else if(validate(email) ==  false ){
+                validationPass = false ; 
+                document.getElementById('emailErrmsg').innerHTML =  "Invalid Email Address";
+            }else{
+                document.getElementById('emailErrmsg').innerHTML =  "";
+            }
+            if(phoneNumber == "" || phoneNumber == null || phoneNumber == "undefine" ){
+                validationPass = false ; 
+                document.getElementById('PhoneNumberErrmsg').innerHTML =  "Please Enter phonenumber ";
+            }else{
+                document.getElementById('PhoneNumberErrmsg').innerHTML =  "";
+            }
+            if(Password == "" || Password == null || Password == "undefine" ){
+                validationPass = false ; 
+                document.getElementById('passwordErrmsg').innerHTML =  "Please Enter Password ";
+            }else{
+                document.getElementById('passwordErrmsg').innerHTML =  "";
+            }
+            if(passworAgain == "" || passworAgain == null || passworAgain == "undefine" ){
+                validationPass = false ; 
+                document.getElementById('passwordAgainErrmsg').innerHTML =  "Please Enter Password Again ";
+            }else if (Password != passworAgain   ){
+                validationPass = false ;
+                document.getElementById('passwordAgainErrmsg').innerHTML =  "Please Enter  same Password";
+            }else{
+                document.getElementById('passwordAgainErrmsg').innerHTML =  ""; 
+            }
+            if(validationPass){
+                callSave();
+            }
+        }
+        function validate(email) {
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (reg.test(email) == false) 
+                return false;
+            else
+                return true;
+        }
+        </script>
+    </head>
+    
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <apex:form id="Ringsingupfrom" styleClass="login100-form validate-form" >
+                    
+                    <apex:actionFunction name="callSave" action="{!createAccount}" />
+                    <apex:actionFunction name="redirectToLoginPage" action="{!redirectToLoginPage}" />
+                    
+                    
+                    
+                    <span class="login100-form-title p-b-26">
+                        Signup to Ring Us 
+                    </span>
+                    <span class="login100-form-title p-b-48">
+                        <i class="zmdi zmdi-font"></i>
+                    </span>
+                    <span id = "passworderr"></span>   
+                    
+                    
+                    <div class="wrap-input100 validate-input">
+                        <apex:inputText id="firstName" value="{!Name}"  styleClass="input100"  html-placeholder="Name" />
+                    </div>
+                    <span id ="firstNameErrmsg" class = "errmsg"></span>
+                    
+                    <div class="wrap-input100 validate-input">
+                        <apex:inputText id="email" value="{!email}"  styleClass="input100"  html-placeholder="Email"/>
+                    </div>
+                    <span id ="emailErrmsg" class = "errmsg"></span>
+                    
+                    
+                    <div class="wrap-input100 validate-input">
+                        <apex:inputText id="PhoneNumber" value="{!PhoneNumber}"  styleClass="input100" html-placeholder="PhoneNumber"/>
+                    </div>
+                    <span id ="PhoneNumberErrmsg" class = "errmsg"></span>
+                    <div class="wrap-input100 validate-input">
+                        <apex:inputSecret id="password" value="{!password}" styleClass="input100"   html-placeholder="Password"  />
+                    </div>
+                    <span id ="passwordErrmsg" class = "errmsg"></span>
+                    
+                    
+                    <div class="wrap-input100 validate-input">
+                        <apex:inputSecret id="passwordAgain" value="{!passwordAgain}" styleClass="input100"  html-placeholder="Type Password Again"   />
+                    </div>
+                    <span id ="passwordAgainErrmsg" class = "errmsg"></span>
+                </apex:form>
+                
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <center> <button class="sighnupbtn" onclick="validateInput()">
+                            Signup
+                            </button></center>                   
+                    </div>
+                </div>
+                <div class="text-center p-t-115" style="margin: 15px;" >
+                    <span class="txt1">
+                        Already a member ? 
+                    </span>                    
+                    <a class="txt2" href="#" onclick="redirectToLoginPage()" >
+                        Log in.   
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:page>

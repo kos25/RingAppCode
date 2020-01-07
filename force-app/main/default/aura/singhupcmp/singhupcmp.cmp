@@ -1,0 +1,14 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+
+<div>
+     <lightning:input type="text" name="name"  placeholder="Enter Username" />
+     <lightning:input type="text" name="name"  placeholder="Password"/>
+    
+</div>
+<div>
+
+    <lightning:button variant="brand" label="label" title="title" onclick="{! c.foo }"/>
+</div>
+
+
+</aura:component>
