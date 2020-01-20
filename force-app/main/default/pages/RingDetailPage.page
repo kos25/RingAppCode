@@ -1,4 +1,4 @@
-<apex:page id="RingDetailPage" docType="html" sidebar="false" showHeader="false" controller="SignupAndLoginController" >
+<apex:page id="RingDetailPage" docType="html-5.0" sidebar="false" showHeader="false" controller="RingOrderDetailController"  standardStylesheets="false" >
     <head>
         <title>RingLogIn</title>
         <meta charset="UTF-8" />
@@ -31,54 +31,170 @@
             color : red ; 
             }
             .login100-form-bgbtn{
-                background: #0070d2 !important;
-
+            background: #0070d2 !important;
+            
             }
             .wrap-login100{
-                height: 609px;
+            height: 609px;
             }
             .login100-form-title{
-                margin-top: 60px;
-
+            margin-top: 60px;
+            
             }
             
+            .fromSec{
+            border : 2px solid grey ;
+            padding: 20px;
+            border-radius = 5px;
+            }
+            .inputsec , .inputadresfield {
+            border: 1px solid grey;
+            margin-top: 10px;
+            height: 34px;
+            width: 259px;
+            padding: 22px;
+            font-size: 17px;
+            border-radius: 16px;
+            }
+            .inputadresfield{
+             height: 100px !important;
+            }
+            
+            .heading{
+            margin-bottom: 40px;
+            margin-top: -22px;
+            }
+            .labels{
+            font-size: 20px;
+            padding: 10px
+            }
+            .btnNext{
+            font-size: 24px;
+            border: 1px solid;
+            background: yellowgreen;
+            color: white;
+            width: 91px;
+            margin-left: 109px;
+            margin-top: 16px;
+            border-radius: 6px;
+            height: 38px;
+            }
         </style>
-        </head>
-         <div class="limiter">
-            <div class="container-login100">
-                <div class="wrap-login100">
-                    <span class="login100-form-title p-b-26">
+       
+        
+        
+        
+        
+        
+    </head>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <apex:form >
+                    <apex:actionFunction name="ShowAboutus" action="{!showAboutUsPart}"/>
+                    <apex:actionFunction name="ShowOrderdetail" action="{!ShowOrderdetail}"/>   
+                    <apex:actionFunction name="callbackfunction" action="{!callbackfunction}"/>  
+                </apex:form>
+                <apex:outputPanel rendered="{!showAboutUs == false && ShowOderDetail == false}">
+                    <span class="login100-form-title p-b-26">   
                         WelCome To our world <br/>
                         You are one Ring Away 
-                     </span>
-                     <span class="login100-form-title p-b-48">
+                    </span>
+                    <span class="login100-form-title p-b-48">
                         <i class="zmdi zmdi-font"></i>
                     </span>
-
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
                             <center> 
-                                <button class="sighnupbtn" onclick="validateInput()">
-                                   About Us
+                                <button class="sighnupbtn" onclick="ShowAboutus()">
+                                    About Us
                                 </button>
                             </center>                   
                         </div>
                     </div>
-
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
                             <center> 
-                                <button class="sighnupbtn" onclick="validateInput()">
-                                  Place an Order
+                                <button class="sighnupbtn" onclick="ShowOrderdetail()">
+                                    Place an Order
                                 </button>
                             </center>                   
                         </div>
                     </div>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!showAboutUs}">
+                    <div class = "aboutus">
+                        <h1 >
+                            About us 
+                        </h1>
+                        <p>
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                            some thing aboput us some thing aboput us 
+                        </p>
+                        
+                        <button onclick = "callbackfunction()">   
+                            back 
+                        </button>      
+                    </div>
+                </apex:outputPanel>  
+                
+                <apex:outputPanel rendered="{!ShowOderDetail}" >
+                    <h1 class="heading" >
+                        Place An Order   
+                    </h1>
                    
-                </div>
-            </div>  
-        </div>
-
+                        <div class="fromSec">
+                        <apex:form id="Fromdeatil">   
+                            <h2>
+                                From :
+                            </h2><br/>
+                            <label for="namefield" class="labels">Name:</label><br/>
+                            <apex:inputText id="namefield" value="{!name}" styleClass="inputsec"/><br/>
+                            <label for="addressfield" class="labels">Address:</label><br/>
+                            <apex:inputTextarea id="addressfield" value="{!address}" styleClass="inputadresfield"/>
+                            <label for="phonenumber" class="labels">Phone Number :</label>
+                            <apex:inputText id="phonenumber"  value="{!PhoneNumber}"  styleClass="inputsec"/>
+                        </apex:form>
+                             <script>
+                            function validateinput(){
+                                alert("t");
+                                var name = document.getElementById("RingDetailPage:Fromdeatil.namefield").value;
+                                alert(name);
+             
+         }
+                            
+                            
+        
+        
+        </script>
+        
+                            
+                            
+                            
+                        </div> 
+                    
+                    <button class="btnNext" onclick="validateinput()">
+                        Next
+                    </button>
+                    
+                </apex:outputPanel>
+            </div>
+        </div>  
+    </div>
+    
 </apex:page>

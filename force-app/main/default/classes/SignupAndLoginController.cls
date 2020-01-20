@@ -51,7 +51,7 @@ public with sharing class SignupAndLoginController {
                 return RingLoginPage; 
 
 }
-  
+
 
 public Pagereference RingLogInFunc(){   
 List<Account> user  = new List<Account>();
