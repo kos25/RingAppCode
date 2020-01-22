@@ -62,7 +62,7 @@
             
             .heading{
             margin-bottom: 40px;
-            margin-top: -22px;
+            margin-top: -50px;
             }
             .labels{
             font-size: 20px;
@@ -79,18 +79,16 @@
             border-radius: 6px;
             height: 38px;
             }
+            .errmsg{
+                color : red ; 
+            }
         </style>
        
-        
-        
-        
-        
-        
     </head>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <apex:form >
+                <apex:form id="Actionfunctions" >
                     <apex:actionFunction name="ShowAboutus" action="{!showAboutUsPart}"/>
                     <apex:actionFunction name="ShowOrderdetail" action="{!ShowOrderdetail}"/>   
                     <apex:actionFunction name="callbackfunction" action="{!callbackfunction}"/>  
@@ -146,8 +144,9 @@
                             some thing aboput us some thing aboput us 
                             some thing aboput us some thing aboput us 
                         </p>
+                        <br/>
                         
-                        <button onclick = "callbackfunction()">   
+                        <button  class="btnNext"   onclick = "callbackfunction()">   
                             back 
                         </button>      
                     </div>
@@ -164,28 +163,46 @@
                                 From :
                             </h2><br/>
                             <label for="namefield" class="labels">Name:</label><br/>
-                            <apex:inputText id="namefield" value="{!name}" styleClass="inputsec"/><br/>
+                            <apex:inputText id="namefield" value="{!Fromname}" styleClass="inputsec"/><br/>
+                            <span class="errmsg" id = "namefieldErMsg"></span><br/>
                             <label for="addressfield" class="labels">Address:</label><br/>
-                            <apex:inputTextarea id="addressfield" value="{!address}" styleClass="inputadresfield"/>
-                            <label for="phonenumber" class="labels">Phone Number :</label>
-                            <apex:inputText id="phonenumber"  value="{!PhoneNumber}"  styleClass="inputsec"/>
+                            <apex:inputTextarea id="addressfield" value="{!Fromaddress}" styleClass="inputadresfield"/><br/>
+                            <span class="errmsg" id = "addressfielderrmsg"></span><br/>
+                            <label for="phonenumber" class="labels">Phone Number :</label><br/>
+                            <apex:inputText id="phonenumber"  value="{!FromPhoneNumber}"  styleClass="inputsec"/><br/>
+                            <span class="errmsg" id = "phonenumbererrMsg"></span>
                         </apex:form>
-                             <script>
-                            function validateinput(){
-                                alert("t");
-                                var name = document.getElementById("RingDetailPage:Fromdeatil.namefield").value;
-                                alert(name);
-             
-         }
-                            
-                            
+                      <script>
+                        function validateinput(){
+                            var validationPass = true ;  
+                            var name = document.getElementById("RingDetailPage:Fromdeatil:namefield").value ;
+                            var address = document.getElementById("RingDetailPage:Fromdeatil:addressfield").value ;
+                            var phonenumber = document.getElementById("RingDetailPage:Fromdeatil:phonenumber").value ;
+                            if(name == "" || name == null || name == "undefine" ){
+                                validationPass = false ; 
+                              document.getElementById('namefieldErMsg').innerHTML =  "Please Enter Name.";
+                               }else{
+                               document.getElementById('namefieldErMsg').innerHTML =  "";
+                            }
+                            if(address == "" || address == null || address == "undefine" ){
+                                validationPass = false ; 
+                               document.getElementById('addressfielderrmsg').innerHTML =  "Please Enter  adress ";
+                               }else{
+                               document.getElementById('addressfielderrmsg').innerHTML =  "";
+                            }
+                            if(phonenumber == "" || phonenumber == null || phonenumber == "undefine" ){
+                                validationPass = false ; 
+                               document.getElementById('phonenumbererrMsg').innerHTML =  "Please Enter  PhoneNumber ";
+                               }else{
+                               document.getElementById('phonenumbererrMsg').innerHTML =  "";
+                            }
+
+                            if(validationPass)
+                              callnext();
+                           
+                        }
+                        </script>
         
-        
-        </script>
-        
-                            
-                            
-                            
                         </div> 
                     
                     <button class="btnNext" onclick="validateinput()">

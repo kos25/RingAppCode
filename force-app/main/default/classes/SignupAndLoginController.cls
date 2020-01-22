@@ -59,9 +59,10 @@ if(string.isNotBlank(emailToLogin)){
 user =  [SELECT ID ,Name , Password__c ,  Email__c  FROM Account Where Email__c =: emailToLogin ] ;
 if(!user.isEmpty()){
     if( user[0].Password__c ==  PasswordTologin) {
-        PageReference RingLoginPage = Page.RingDetailPage;
-            RingLoginPage.setRedirect(true);  
-            return RingLoginPage; 
+        PageReference RingDetailPage = Page.RingDetailPage;
+            RingDetailPage.getParameters().put('id',user[0].ID);
+            RingDetailPage.setRedirect(true);  
+            return RingDetailPage; 
 }else{
     PasswordNotMatched = true ;
     errorMessage = 'Please Enter Correct Password';

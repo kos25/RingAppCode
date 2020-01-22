@@ -1,15 +1,19 @@
 public class RingOrderDetailController {
+    public String AccountId; 
     public Boolean showAboutUs{get;set;}
     public boolean ShowOderDetail{get;set;}
-    public String name{get;set;}  
-    public String address{get;set;}
-    public String PhoneNumber{get;set;}
+    public String Fromname{get;set;}  
+    public String Fromaddress{get;set;}
+    public String FromPhoneNumber{get;set;}
     
     
     
     public RingOrderDetailController(){
         showAboutUs = false ; 
         ShowOderDetail = false ; 
+        AccountId = apexpages.currentpage().getparameters().get('id');
+        System.debug('AccountId = ' +AccountId);
+
         
     }
     
@@ -26,8 +30,7 @@ public class RingOrderDetailController {
     }
     
     public void callbackfunction(){
-         ShowOderDetail = false; 
-         showAboutUs = false ;
+         ShowOderDetail = false;
         
     }
     
